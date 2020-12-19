@@ -1,3 +1,3 @@
 高中数学
 
-[Markdown 语法](Markdown_基本语法.md）
+[Markdown 语法](Markdown_基本语法.md)
