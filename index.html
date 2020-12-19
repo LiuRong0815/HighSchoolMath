@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <title>LaTeX 数学公式命令简介</title>
+    <script src="https://cdn.staticfile.org/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async=""></script>
+    <style type="text/css">
+        body{
+          max-width: 40em; 
+          margin-right: auto; 
+          margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+
+
+<h2 style="text-align: center; color: blue">
+\(\mathrm\LaTeX\) 数学公式命令简介
+</h2>
+
+<p style="text-indent: 2em">
+本文简单介绍录入数学公式常用的 \(\mathrm\LaTeX\) 命令（含环境），均为标准的 \(\mathrm\LaTeX\) 命令，也是 MathJax 开源数学符号渲染引擎（版本号：2.7.5，最新版见<a href="https://www.mathjax.org/">官网链接</a>）支持的命令。前两节为 \(\mathrm\LaTeX\) 基础，后续内容可粗略浏览后，待需要时再查阅。
+</p>
+
+<a name="contents"></a>
+<p>
+<table border="0" cellspacing="0" cellpadding="10" style="font-size:0.85em; margin-right: auto; margin-left: auto; border-collapse: collapse;">
+<caption>目录</caption>
+<tr>
+  <td><a href="#section1"> 1. 了解 \(\mathrm\LaTeX\) 命令</a></td>
+  <td><a href="#section2"> 2. 了解 \(\mathrm\LaTeX\) 环境</a></td>
+</tr>
+<tr>
+  <td><a href="#section3"> 3. 无反斜线的命令</a></td>
+  <td><a href="#section4"> 4. 反斜线后为单字符的命令</a></td>
+</tr>
+<tr>
+  <td><a href="#section5"> 5. 常用的数学字符</a></td>
+  <td><a href="#section6"> 6. 常用的数学结构</a></td>
+</tr>
+<tr>
+  <td><a href="#section7"> 7. 常用的字体</a></td>
+  <td><a href="#section8"> 8. 调整括号的大小</a></td>
+</tr>
+<tr>
+  <td><a href="#section9"> 9. 分式和相关结构</a></td>
+  <td><a href="#section10"> 10. 简单的表格</a></td>
+</tr>
+<tr>
+  <td><a href="#section11"> 11. 分段函数和方程组</a></td>
+  <td><a href="#section12"> 12. 矩阵类环境</a></td>
+</tr>
+<tr>
+  <td><a href="#section13"> 13. 公式类环境</a></td>
+  <td><a href="#section14"> 14. 定义新命令</a></td>
+</tr>
+<tr>
+  <td><a href="#section15"> 15. 常见问题</a></td>
+  <td>&emsp;</td>
+</tr>
+</table>
+</p>
+
+<a name="section1"></a>
+<h3 style="text-align: center; color: blue">
+1. 了解 \(\mathrm\LaTeX\) 命令 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<p style="text-indent: 2em">
+大部分 \(\mathrm\LaTeX\) 命令由反斜线 “<code style="color: green">\</code>”  和一个（或多个）英文字母（或字符）组成，如
+</p>
+
+<p style="text-indent: 2em">
+    &bull; 命令 “<code style="color: green">\_</code>” 给出：下划线：\(\_\)
+</p>
+<p style="margin-top: -18px">
+    &emsp;&emsp;&bull; 命令 “<code style="color: green">\sin</code>” 给出：正弦函数名：\(\sin\)
+</p>
+
+<p>
+命令的含义也与字母的大小写有关，如
+</p>
+
+<p style="text-indent: 2em">
+    &bull; 命令 “<code style="color: green">\rightarrow</code>” 给出：单线右箭头：\(\rightarrow\)
+</p>
+<p style="margin-top: -18px">
+    &emsp;&emsp;&bull; 命令 “<code style="color: green">\Rightarrow</code>” 给出：双线右箭头：\(\Rightarrow\)
+</p>
+
+<p>
+命令的作用主要有三个：
+</p>
+
+<p style="text-indent: 2em">
+    1. 显示特定字符，如前述四个命令；
+</p>
+<p style="text-indent: 2em; margin-top: -18px">
+    2. 修改字体、字号等；
+</p>
+<p style="text-indent: 2em; margin-top: -18px">
+    3. 修改字符的摆放方式（含构造特殊的式子结构）。
+</p>
+
+<p style="text-indent: 2em">
+显示字符的命令后面一般只需加空格即可录入后续内容，如命令 “<code style="color: green">\cos h</code>” 给出：\(\cos h\)。若忘了空格，则命令 “<code style="color: green">\cosh</code>” 给出：\(\cosh\)。相邻的两个带反斜线的命令中间无需额外的空格，如命令 “<code style="color: green">\log\alpha</code>” 给出：\(\log\alpha\)。
+</p>
+
+<p style="text-indent: 2em">
+在使用修改格式的命令时，需要注意命令的作用范围。有的命令作用范围只有一个字符，如命令 “<code style="color: green">\hat ab</code>” 给出：\(\hat ab\)；有的命令则作用于后续所有普通字符，如命令 “<code style="color: green">\mit\Gamma\Pi</code>” 给出：\(\mit\Gamma\Pi\)（大写希腊字母默认为正体）。要想得到 \({\mit\Gamma}\Pi\) 需改用命令 “<code style="color: green">{\mit\Gamma}\Pi</code>”，即用花括号限定命令的作用范围。
+</p>
+
+<p style="text-indent: 2em">
+类似的还有，命令 “<code style="color: green">\overline ab</code>” 给出：\(\overline ab\)，而命令 “<code style="color: green">\overline{ab}</code>” 给出：\(\overline{ab}\)，即命令 “<code style="color: green">\overline</code>” 作用于其后一个字符，而用花括号限定的一组字符也视为一个字符。花括号也是\(\mathrm\LaTeX\) 命令，显示花括号字符的方法见<a href="#section3">第 3 节</a>。
+</p>
+
+<a name="section2"></a>
+<h3 style="text-align: center; color: blue">
+2. 了解 \(\mathrm\LaTeX\) 环境 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<p style="text-indent: 2em">
+\(\mathrm\LaTeX\) 数学公式命令应该放在数学环境中，而 MathJax 默认支持的数学环境只有两个：一个是行内公式环境 “<code style="color: green">\(...\)</code>”，如 <pre style="color: green">
+  公式 \(a^2 + b^2 = c^2\) 表明</pre>给出： 
+“公式 \(a^2 + b^2 = c^2\) 表明”；另一个是行间公式环境 “<code style="color: green">\[...\]</code>”，如 <pre style="color: green">
+  公式 \[a^2 + b^2 = c^2\] 表明</pre> 给出：
+“公式 \[a^2 + b^2 = c^2\] 表明”，即行间公式环境也就是通常的居中公式环境。\(\mathrm\LaTeX\) 默认忽略数学环境代码中的空格，并按特定的规则加适当的间距，如代码 “<code style="color: green">a^2+&emsp;&emsp;b^2 = c^2</code>” 仍给出： \(a^2 +    b^2 = c^2\)。
+</p>
+
+<p style="text-indent: 2em">
+这里用到的 “<code style="color: green">^</code>” 也是 \(\mathrm\LaTeX\) 数学公式命令，但无需反斜线。可以看出，在数学环境中普通字符默认为斜体（可以用命令 “<code style="color: green">\mathrm</code>” 改为正体，见<a href="#section 7">第 7 节</a>）。<span style="color: red">需要特别注意的是，为了避免与其他网页内容冲突，目前高教社平台中 MathJax 默认支持的行内公式环境不是 \(\mathrm\LaTeX\) 默认的 "<code style="color: green">$...$</code>"</span>。后面为了叙述简洁，有时会省略数学环境的命令。
+</p>
+
+<p style="text-indent: 2em">
+两个数学环境中还可以嵌套其他的公式环境，用来构造特殊的式子结构。公式环境的代码一般为 <pre style="color: green">
+  \begin{环境名}
+    ...
+  \end{环境名}
+</pre>比如代码 <pre style="color: green">
+  \begin{pmatrix}
+  a & b\\
+  c & d
+  \end{pmatrix}
+</pre>给出：\(\begin{pmatrix}a & b\\ c & d\end{pmatrix}\)，其中命令 “<code style="color: green">& \\</code>” 分别表示对齐和换行。更多的公式环境见<a href="#section110">第 10 节</a>至<a href="#section13">第 13 节</a>。
+</p>
+
+
+<a name="section3"></a>
+<h3 style="text-align: center; color: blue">
+3. 无反斜线的命令 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<p style="text-indent: 2em">
+  单字符 “<code style="color: green">{ } ^ _ & % # ~ $</code>” 均是 \(\mathrm\LaTeX\) 命令，其中前六个较常用，其作用见<a href="#table1">表 1</a>。
+</p>
+
+<a name="table1"></a><!-无反斜线的单字符命令->
+<p style="text-indent: 2em">
+<table border="1" cellspacing="0" cellpadding="10" style="font-size:0.85em; margin-right: auto; margin-left: auto; border-collapse: collapse;">
+<caption>表 1. 无反斜线的单字符命令</caption>
+<tr>
+  <th>命令</th>
+  <th>含义</th>
+  <th>代码</th>
+  <th>效果</th>
+</tr>
+<tr>
+  <td><code style="color: green">{ }</code></td>
+  <td>分组</td>
+  <td><code style="color: green">\bar{a}b \bar{cd}</code></td>
+  <td>\(\bar{a}b\bar{cd}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">^</code></td>
+  <td>上角</td>
+  <td><code style="color: green">x^{\beta}</code></td>
+  <td>\(x^\beta\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">_</code></td>
+  <td>下角</td>
+  <td><code style="color: green">x_{\beta}</code></td>
+  <td>\(x_{\beta}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green"> & </code></td>
+  <td>对齐</td>
+  <td><pre style="color: green">
+\begin{bmatrix}
+  a & b\\
+  c & d
+\end{bmatrix}</pre></td>
+  <td>\(\begin{bmatrix}
+  a & b\\
+  c & d
+\end{bmatrix}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">%</code></td>
+  <td>注释</td>
+  <td><code style="color: green">\tan x %正切</code></td>
+  <td>\(\tan x %正切\)</td>
+</tr>
+</table>
+</p>
+
+<p style="text-indent: 2em">
+命令 “<code style="color: green">&</code>” 中代码里的 “<code style="color: green">\begin{bmatrix}...\end{bmatrix}</code>” 是方括号矩阵环境，命令 “<code style="color: green">\\</code>” 表示换行。
+</p>
+
+<p style="text-indent: 2em">
+命令 “<code style="color: green">#</code>” 在定义新命令时指定参数，命令 “<code style="color: green">~</code>” 生成不可压缩的空格（且此空格后不断行），命令 “<code style="color: green">$</code>” 指定数学环境的起止（MathJax 默认不支持，需修改设置）。
+</p>
+
+<p style="text-indent: 2em">
+要显示字符 “<code style="color: green">{ } ^ _ & % # ~ $</code>”，命令为 <pre style="color: green">
+  \{ \} \hat{} \_ \& \% \# \sim \$</pre>效果：
+\[\{ \} \hat{}\ \_\ \&\ \%\ \#\ \sim\ \$\]
+命令 “<code style="color: green">\hat</code>” 后加一个空组 “<code style="color: green">{}</code>” 使得该命令作用在空字符上。要想显示反斜线本身 “<code style="color: green">\</code>” ，命令为 “<code style="color: green">\backslash</code>”，效果：\(\backslash\)。
+</p>
+
+<a name="section4"></a>
+<h3 style="text-align: center; color: blue">
+4. 反斜线后为单字符的命令 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+
+<p style="text-indent: 2em">
+除了上面已经介绍的命令，反斜线后为单字符的 \(\mathrm\LaTeX\) 命令中，常用的见<a href="table2">表 2</a>。
+</p>
+
+<a name="table2"></a><!-反斜线后为单字符的命令->
+<p>
+<table border="1" cellspacing="0" cellpadding="10" style="font-size:0.85em; margin-right: auto; margin-left: auto; border-collapse: collapse;">
+<caption>表 2. 反斜线后为单字符的命令</caption>
+<tr>
+  <th>命令</th>
+  <th>含义</th>
+  <th>代码</th>
+  <th>效果</th>
+</tr>
+<tr>
+  <td><code style="color: green">\ </code></td>
+  <td>空格</td>
+  <td><code style="color: green">a b c\ d</code></td>
+  <td>\(a b c\ d\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\,</code></td>
+  <td>小空格</td>
+  <td><code style="color: green">a b c\,d</code></td>
+  <td>\(a b c\,d\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\!</code></td>
+  <td>回退小空格</td>
+  <td><code style="color: green">a b c\!d</code></td>
+  <td>\(a b c\!d\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\\</code></td>
+  <td>换行</td>
+  <td><pre style="color: green">
+  a b\\
+  c    d</pre></td>
+  <td width="6em">
+  \(ab\\
+  cd\)
+  </td>
+</tr>
+</table>
+</p>
+
+<p style="text-indent: 2em">
+从<a href="table2">表 2</a>  中可以再次看出，公式环境中的空格默认被忽略，无论是一个空格还是多个空格均不显示。若要输入空格，需使用适当的命令。表中的第一个命令 “<code style="color: green">\ </code>” 为反斜线后加空格。若需更大的间距，命令 “<code style="color: green">\quad \qquad</code>” 分别表示一字空和两字空，如代码 “<code style="color: green">a\quad b\qquad c</code>” 给出：\(a\quad b\qquad c\)。
+</p>
+
+<a name="section5"></a>
+<h3 style="text-align: center; color: blue">
+5. 常用的数学字符 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<p style="text-indent: 2em">
+以下给出：常用数学字符的 \(\mathrm\LaTeX\) 命令，见<a href="table3">表 3</a> 至<a href="table10">表 10</a>。
+</p>
+
+<a name="table3"></a><!-音调标志->
+<p>
+<table border="1" cellspacing="0" cellpadding="10" style="font-size:0.85em; margin-right: auto; margin-left: auto; border-collapse: collapse;">
+<caption>表 3. 音调标志</caption>
+<tr>
+  <th>代码</th>
+  <th>效果</th>
+  <th>代码</th>
+  <th>效果</th>
+</tr>
+<tr>
+  <td><code style="color: green">\hat{a}</code></td>
+  <td>\(\hat{a}\)</td>
+  <td><code style="color: green">\acute{a}</code></td>
+  <td>\(\acute{a}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\bar{a}</code></td>
+  <td>\(\bar{a}\)</td>
+  <td><code style="color: green">\dot{a}</code></td>
+  <td>\(\dot{a}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\check{a}</code></td>
+  <td>\(\check{a}\)</td>
+  <td><code style="color: green">\grave{a}</code></td>
+  <td>\(\grave{a}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\vec{a}</code></td>
+  <td>\(\vec{a}\)</td>
+  <td><code style="color: green">\ddot{a}</code></td>
+  <td>\(\ddot{a}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\tilde{a}</code></td>
+  <td>\(\tilde{a}\)</td>
+  <td>—</code></td>
+  <td>—</td>
+</tr>
+</table>
+</p>
+
+<p style="text-indent: 2em">
+<a href="table3">表 3</a> 中的代码 “<code style="color: green">\vec{a}</code>” 有时用来录入向量，但更好的选择是用黑体（命令“<code style="color: green">\boldsymbol</code>”），见<a href="#section7">第 7 节</a>；或用箭头（命令“<code style="color: green">\overrightarrow</code>”），见<a href="#table11">表 11</a>。
+</p>
+
+<a name="table4"></a><!-希腊字母->
+<p>
+<table border="1" cellspacing="0" cellpadding="10" style="font-size:0.85em; margin-right: auto; margin-left: auto; border-collapse: collapse;">
+<caption>表 4. 希腊字母</caption>
+<tr>
+  <th>代码</th>
+  <th>效果</th>
+  <th>代码</th>
+  <th>效果</th>
+</tr>
+<tr>
+  <td><code style="color: green">\alpha</code></td>
+  <td>\(\alpha\)</td>
+  <td><code style="color: green">\beta</code></td>
+  <td>\(\beta\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\gamma</code></td>
+  <td>\(\gamma\)</td>
+  <td><code style="color: green">\delta</code></td>
+  <td>\(\delta\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\epsilon</code></td>
+  <td>\(\epsilon\)</td>
+  <td><code style="color: green">\varepsilon</code></td>
+  <td>\(\varepsilon\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\zeta</code></td>
+  <td>\(\zeta\)</td>
+  <td><code style="color: green">\eta</code></td>
+  <td>\(\eta\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\theta</code></td>
+  <td>\(\theta\)</td>
+  <td><code style="color: green">\vartheta</code></td>
+  <td>\(\vartheta\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\iota</code></td>
+  <td>\(\iota\)</td>
+  <td><code style="color: green">\kappa</code></td>
+  <td>\(\kappa\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\lambda</code></td>
+  <td>\(\lambda\)</td>
+  <td><code style="color: green">\mu</code></td>
+  <td>\(\mu\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\nu</code></td>
+  <td>\(\nu\)</td>
+  <td><code style="color: green">\xi</code></td>
+  <td>\(\xi\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\pi</code></td>
+  <td>\(\pi\)</td>
+  <td><code style="color: green">\varpi</code></td>
+  <td>\(\varpi\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\rho</code></td>
+  <td>\(\rho\)</td>
+  <td><code style="color: green">\varrho</code></td>
+  <td>\(\varrho\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\sigma</code></td>
+  <td>\(\sigma\)</td>
+  <td><code style="color: green">\varsigma</code></td>
+  <td>\(\varsigma\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\tau</code></td>
+  <td>\(\tau\)</td>
+  <td><code style="color: green">\upsilon</code></td>
+  <td>\(\upsilon\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\phi</code></td>
+  <td>\(\phi\)</td>
+  <td><code style="color: green">\varphi</code></td>
+  <td>\(\varphi\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\chi</code></td>
+  <td>\(\chi\)</td>
+  <td><code style="color: green">\psi</code></td>
+  <td>\(\psi\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\omega</code></td>
+  <td>\(\omega\)</td>
+  <td><code style="color: green">\Gamma</code></td>
+  <td>\(\Gamma\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\Delta</code></td>
+  <td>\(\Delta\)</td>
+  <td><code style="color: green">\Theta</code></td>
+  <td>\(\Theta\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\Lambda</code></td>
+  <td>\(\Lambda\)</td>
+  <td><code style="color: green">\Xi</code></td>
+  <td>\(\Xi\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\Pi</code></td>
+  <td>\(\Pi\)</td>
+  <td><code style="color: green">\Sigma</code></td>
+  <td>\(\Sigma\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\Upsilon</code></td>
+  <td>\(\Upsilon\)</td>
+  <td><code style="color: green">\Phi</code></td>
+  <td>\(\Phi\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\Psi</code></td>
+  <td>\(\Psi\)</td>
+  <td><code style="color: green">\Omega</code></td>
+  <td>\(\Omega\)</td>
+</tr>
+</table>
+</p>
+
+<p style="text-indent: 2em">
+<a href="table4">表 4</a> 中没有给出：的希腊字母，输入方式与英文字母相同，如 “<code style="color: green">AB</code>” 等。小写希腊字母默认斜体，大写希腊字母默认正体，后者可以在前面加命令 “<code style="color: green">\mit</code>” 改为斜体（注意用花括号限定命令的作用范围）。
+</p>
+
+<p style="text-indent: 2em">
+此外，字母 \(\Sigma\) 与求和号 \(\sum\)不同，后者命令为 “<code style="color: green">\sum</code>”；字母 \(\Pi\) 与连乘号 \(\prod\) 也不同，后者命令为 “<code style="color: green">\prod</code>”，见<a href="#table6">表 6</a>。
+</p>
+
+<a name="table5"></a><!-二元运算符->
+<p>
+<table border="1" cellspacing="0" cellpadding="10" style="font-size:0.85em; margin-right: auto; margin-left: auto; border-collapse: collapse;">
+<caption>表 5. 二元运算符</caption>
+<tr>
+  <th>代码</th>
+  <th>效果</th>
+  <th>代码</th>
+  <th>效果</th>
+</tr>
+<tr>
+  <td><code style="color: green">\pm</code></td>
+  <td>\(\pm\)</td>
+  <td><code style="color: green">\mp</code></td>
+  <td>\(\mp\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\cap</code></td>
+  <td>\(\cap\)</td>
+  <td><code style="color: green">\cup</code></td>
+  <td>\(\cup\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\oplus</code></td>
+  <td>\(\oplus\)</td>
+  <td><code style="color: green">\ominus</code></td>
+  <td>\(\ominus\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\times</code></td>
+  <td>\(\times\)</td>
+  <td><code style="color: green">\div</code></td>
+  <td>\(\div\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\otimes</code></td>
+  <td>\(\otimes\)</td>
+  <td><code style="color: green">\oslash</code></td>
+  <td>\(\oslash\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\cdot</code></td>
+  <td>\(\cdot\)</td>
+  <td><code style="color: green">\odot</code></td>
+  <td>\(\odot\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\circ</code></td>
+  <td>\(\circ\)</td>
+  <td><code style="color: green">\bullet</code></td>
+  <td>\(\bullet\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\bigcirc</code></td>
+  <td>\(\bigcirc\)</td>
+  <td><code style="color: green">\setminus</code></td>
+  <td>\(\setminus\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\vee</code></td>
+  <td>\(\vee\)</td>
+  <td><code style="color: green">\wedge</code></td>
+  <td>\(\wedge\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\dagger</code></td>
+  <td>\(\dagger\)</td>
+  <td><code style="color: green">\ddagger</code></td>
+  <td>\(\ddagger\)</td>
+</tr>
+</table>
+</p>
+
+<p style="text-indent: 2em">
+<a href="#table5">表 5</a> 中的集合运算符号 “\(\cap\ \cup\)” 仅用于两个集合的运算，如代码 “<code style="color: green">A=B\cap C</code>” 给出：: \(A=B\cap C\)。多个集合的运算建议改用<a href="#table6">表 6</a> 中的大算符 “\(\bigcap\)”。如代码 <pre style="color: green">
+  \[A_1\cap A_2\cap\cdots \cap A_n= 
+    \bigcap_{i=1}^n\]</pre>给出： \[A_1\cap A_2\cap\cdots \cap A_n= 
+   \bigcap_{i=1}^n A_i\]
+差集符号 “\(\setminus\)” 和反斜线 “\(\backslash\)” 也有区别，如代码 “<code style="color: green">A\setminus B</code>” 与 “<code style="color: green">A\backslash B</code>” 分别给出：: \(A\setminus B\) 与 \(A\backslash B\)。
+</p>
+
+<a name="table6"></a><!-大运算符->
+<p>
+<table border="1" cellspacing="0" cellpadding="10" style="font-size:0.85em; margin-right: auto; margin-left: auto; border-collapse: collapse;">
+<caption>表 6. 大运算符</caption>
+<tr>
+  <th>代码</th>
+  <th>效果</th>
+  <th>代码</th>
+  <th>效果</th>
+</tr>
+<tr>
+  <td><code style="color: green">\sum</code></td>
+  <td>\[\sum\]</td>
+  <td><code style="color: green">\prod</code></td>
+  <td>\[\prod\]</td>
+</tr>
+<tr>
+  <td><code style="color: green">\int</code></td>
+  <td>\[\int\]</td>
+  <td><code style="color: green">\oint</code></td>
+  <td>\[\oint\]</td>
+</tr>
+<tr>
+  <td><code style="color: green">\iint</code></td>
+  <td>\[\iint\]</td>
+  <td><code style="color: green">\bigodot</code></td>
+  <td>\[\bigodot\]</td>
+</tr>
+<tr>
+  <td><code style="color: green">\bigoplus</code></td>
+  <td>\[\bigoplus\]</td>
+  <td><code style="color: green">\bigotimes</code></td>
+  <td>\[\bigotimes\]</td>
+</tr>
+<tr>
+  <td><code style="color: green">\bigcap</code></td>
+  <td>\[\bigcap\]</td>
+  <td><code style="color: green">\bigcup</code></td>
+  <td>\[\bigcup\]</td>
+</tr>
+<tr>
+  <td><code style="color: green">\bigvee</code></td>
+  <td>\[\bigvee\]</td>
+  <td><code style="color: green">\bigwedge</code></td>
+  <td>\[\bigwedge\]</td>
+</tr>
+</table>
+</p>
+
+<p style="text-indent: 2em">
+<a href="#table6">表 6</a> 中显示的是大运算符在居中公式环境中的大小。在行内公式环境中，大运算符会自动换成小号字体，如命令 “<code style="color: green">\(\sum_{i=1}^n \int_a^b\)</code>” 给出：\(\sum_{i=1}^n \int_a^b\)。此时也可添加命令 “<code style="color: green">\displaystyle</code>” 修改为居中公式环境中的大小, 如命令 <pre style="color: green">
+  \(\displaystyle\sum_{i=1}^n \int_a^b\)</pre>给出：\(\displaystyle\sum_{i=1}^n \int_a^b\)。
+</p>
+
+<p style="text-indent: 2em">
+各大运算符的上下限在行内公式环境和居中公式环境中都有默认的位置。若想把大运算符的上下限放在符号上下方，则可用命令 “<code style="color: green">\limits</code>”，如命令 <pre style="color: green">
+  \(\sum\limits_{i=1}^n \iint\limits_D\)</pre>给出：\(\sum\limits_{i=1}^n \iint\limits_D\)（注意命令 “<code style="color: green">\limits</code>” 的位置）。
+</p>
+
+<p style="text-indent: 2em">
+若想把大运算符的上下限放在符号右侧，则可用命令 “<code style="color: green">\nolimits</code>”，如命令 <pre style="color: green">
+  \(\displaystyle\sum\nolimits_{i=1}^n\)</pre>给出：\(\displaystyle\sum\nolimits_{i=1}^n\)（注意命令 “<code style="color: green">\nolimits</code>” 的位置）。
+</p>
+
+<p style="text-indent: 2em">
+与命令 “<code style="color: green">\iint</code>” 类似的还有三重积分命令 “<code style="color: green">\iiint</code>” 和多重积分命令 “<code style="color: green">\idotsint</code>”，但是<span style="color: red">没有环面积分命令 “<code style="color: green">\oiint</code>”</span>，需要根据已有的命令自行构造（见<a href="#section14">第 14 节</a>）。
+</p>
+
+<a name="table7"></a><!-关系符->
+<p>
+<table border="1" cellspacing="0" cellpadding="10" style="font-size:0.85em; margin-right: auto; margin-left: auto; border-collapse: collapse;">
+<caption>表 7. 关系符</caption>
+<tr>
+  <th>代码</th>
+  <th>效果</th>
+  <th>代码</th>
+  <th>效果</th>
+</tr>
+<tr>
+  <td><code style="color: green">=</code></td>
+  <td>\(=\)</td>
+  <td><code style="color: green">\equiv</code></td>
+  <td>\(\equiv\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\neq</code></td>
+  <td>\(\neq\)</td>
+  <td><code style="color: green">\approx</code></td>
+  <td>\(\approx\)</td>
+</tr>
+<tr>
+  <td><span style="color: green">&lt;</span></td>
+  <td>\(&lt;\)</td>
+  <td><code style="color: green">></code></td>
+  <td>\(>\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\leqslant</code></td>
+  <td>\(\leqslant\)</td>
+  <td><code style="color: green">\geqslant</code></td>
+  <td>\(\geqslant\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\ll</code></td>
+  <td>\(\ll\)</td>
+  <td><code style="color: green">\gg</code></td>
+  <td>\(\gg\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\perp</code></td>
+  <td>\(\perp\)</td>
+  <td><code style="color: green">/\!/</code></td>
+  <td>\(/\!/\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\in</code></td>
+  <td>\(\in\)</td>
+  <td><code style="color: green">\mid</code></td>
+  <td>\(\mid\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\subset</code></td>
+  <td>\(\subset\)</td>
+  <td><code style="color: green">\supset</code></td>
+  <td>\(\supset\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\subseteq</code></td>
+  <td>\(\subseteq\)</td>
+  <td><code style="color: green">\supseteq</code></td>
+  <td>\(\supseteq\)</td>
+</tr>
+</table>
+</p>
+
+<p style="text-indent: 2em">
+<a href="#table7">表 7</a> 中有些命令可以在前面添加 “<code style="color: green">\not</code>” 变成否定形式，如命令 “<code style="color: green">a\not\in B</code>” 给出：\(a\not\in B\)。其他表中的符号也可以类似调整。平行符号命令 “<code style="color: green">/\!/</code>” 是利用已有命令构造的，\(\mathrm\LaTeX\) 默认的命令为 “<code style="color: green">\parallel</code>” ，效果：\(\parallel\)。命令 “<code style="color: green">\mid</code>” 在表示集合会用到，见<a href="#table10">表 10</a> 后的说明。
+</p>
+
+<p style="text-indent: 2em; color: red">在网页代码中，小于号 “&lt;” 有特别的含义，所以写 \(\mathrm{\LaTeX}\) 公式时，小于号 “&lt;” 后建议空一格，否则公式可能无法被识别。
+</p>
+
+<a name="table8"></a><!-箭头->
+<p>
+<table border="1" cellspacing="0" cellpadding="10" style="font-size:0.85em; margin-right: auto; margin-left: auto; border-collapse: collapse;">
+<caption>表 8. 箭头</caption>
+<tr>
+  <th>代码</th>
+  <th>效果</th>
+  <th>代码</th>
+  <th>效果</th>
+</tr>
+<tr>
+  <td><code style="color: green">\rightarrow</code></td>
+  <td>\(\rightarrow\)</td>
+  <td><code style="color: green">\longrightarrow</code></td>
+  <td>\(\longrightarrow\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\leftarrow</code></td>
+  <td>\(\leftarrow\)</td>
+  <td><code style="color: green">\longleftarrow</code></td>
+  <td>\(\longleftarrow\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\Rightarrow</code></td>
+  <td>\(\Rightarrow\)</td>
+  <td><code style="color: green">\Longrightarrow</code></td>
+  <td>\(\Longrightarrow\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\Leftarrow</code></td>
+  <td>\(\Leftarrow\)</td>
+  <td><code style="color: green">\Longleftarrow</code></td>
+  <td>\(\Longleftarrow\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\leftrightarrow</code></td>
+  <td>\(\leftrightarrow\)</td>
+  <td><code style="color: green">\Leftrightarrow</code></td>
+  <td>\(\Leftrightarrow\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\mapsto</code></td>
+  <td>\(\mapsto\)</td>
+  <td><code style="color: green">\longmapsto</code></td>
+  <td>\(\longmapsto\)</td>
+</tr>
+</table>
+</p>
+
+<p style="text-indent: 2em">
+<a href="#table8">表 8</a> 中的右箭头 “\(\rightarrow\)” 也可以由命令 “<code style="color: green">\to</code>” 生成，如代码 “<code style="color: green">x\rightarrow 0</code>” 和 “<code style="color: green">x\to 0</code>” 均给出：\(x\to 0\)。若要把箭头放在字符上方（如表示向量），则需用<a href="#table11">表 11</a> 中的命令。
+</p>
+
+<p style="text-indent: 2em">
+表中都是长度固定的箭头，而命令 “<code style="color: green">\xrightarrow[...]{...}</code>” 和 “<code style="color: green">\xleftarrow[...]{...}</code>” 则可生成长度变化的箭头，如代码<pre style="color: green">
+  \[0 \xleftarrow[\zeta]{\alpha}
+    F\times\triangle
+    \xrightarrow{\partial (g+h)} 
+    E\]
+</pre>给出： \[0 \xleftarrow[\zeta]{\alpha}
+    F\times\triangle
+    \xrightarrow{\partial (g+h)} 
+	E\]
+这两个命令后的方括号内为可选参数，表示箭头下方的式子；花括号内为必选参数，表示箭头上方的式子。使用时，命令后必须带花括号（哪怕内部没有式子）；可以没有方括号，但若有的话，一定在花括号前面。
+</p>
+
+<a name="table9"></a><!-常用函数名和运算名->
+<p>
+<table border="1" cellspacing="0" cellpadding="10" style="font-size:0.85em; margin-right: auto; margin-left: auto; border-collapse: collapse;">
+<caption>表 9. 常用函数名和运算名</caption>
+<tr>
+  <th>代码</th>
+  <th>效果</th>
+  <th>代码</th>
+  <th>效果</th>
+</tr>
+<tr>
+  <td><code style="color: green">\sin</code></td>
+  <td>\(\sin\)</td>
+  <td><code style="color: green">\arcsin</code></td>
+  <td>\(\arcsin\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\cos</code></td>
+  <td>\(\cos\)</td>
+  <td><code style="color: green">\arccos</code></td>
+  <td>\(\arccos\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\tan</code></td>
+  <td>\(\tan\)</td>
+  <td><code style="color: green">\arctan</code></td>
+  <td>\(\arctan\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\sec</code></td>
+  <td>\(\sec\)</td>
+  <td><code style="color: green">\csc</code></td>
+  <td>\(\csc\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\sinh</code></td>
+  <td>\(\sinh\)</td>
+  <td><code style="color: green">\cosh</code></td>
+  <td>\(\cosh\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\tanh</code></td>
+  <td>\(\tanh\)</td>
+  <td><code style="color: green">\coth</code></td>
+  <td>\(\coth\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\exp</code></td>
+  <td>\(\exp\)</td>
+  <td><code style="color: green">\log</code></td>
+  <td>\(\log\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\lg</code></td>
+  <td>\(\lg\)</td>
+  <td><code style="color: green">\ln</code></td>
+  <td>\(\ln\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\min</code></td>
+  <td>\(\min\)</td>
+  <td><code style="color: green">\max</code></td>
+  <td>\(\max\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\inf</code></td>
+  <td>\(\inf\)</td>
+  <td><code style="color: green">\sup</code></td>
+  <td>\(\sup\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\liminf</code></td>
+  <td>\(\liminf\)</td>
+  <td><code style="color: green">\limsup</code></td>
+  <td>\(\limsup\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\lim</code></td>
+  <td>\(\lim\)</td>
+  <td><code style="color: green">\det</code></td>
+  <td>\(\det\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\dim</code></td>
+  <td>\(\dim\)</td>
+  <td><code style="color: green">\deg</code></td>
+  <td>\(\deg\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\ker</code></td>
+  <td>\(\ker\)</td>
+  <td><code style="color: green">\arg</code></td>
+  <td>\(\arg\)</td>
+</tr>
+</table>
+</p>
+
+<p style="text-indent: 2em">
+<a href="#table9">表 9</a> 中的极限运算命令 “<code style="color: green">\lim</code>” 在行内公式中的样式可能需要修改，如命令 <pre style="color: green">
+  \lim_{x\to 0} x = 0</pre> 和 <pre style="color: green">
+  \lim\limits_{x\to 0} x = 0</pre>分别给出：\(\lim_{x\to 0} x = 0\) 和 
+\(\lim\limits_{x\to 0} x = 0\)。类似的还有命令 “<code style="color: green">\limsup</code>” 和 “<code style="color: green">\liminf</code>” 等。命令 “<code style="color: green">\lim</code>” 还可以结合命令 “<code style="color: green">\substack</code>” 来录入二重极限，具体方法见<a href="#section15.5">第 15 节（5）</a>。
+</p>
+
+
+<a name="table10"></a><!-界定符及其他符号->
+<p>
+<table border="1" cellspacing="0" cellpadding="10" style="font-size:0.85em; margin-right: auto; margin-left: auto; border-collapse: collapse;">
+<caption>表 10. 界定符及其他符号</caption>
+<tr>
+  <th>代码</th>
+  <th>效果</th>
+  <th>代码</th>
+  <th>效果</th>
+</tr>
+<tr>
+  <td><code style="color: green">\{</code></td>
+  <td>\(\{\)</td>
+  <td><code style="color: green">\}</code></td>
+  <td>\(\}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\langle</code></td>
+  <td>\(\langle\)</td>
+  <td><code style="color: green">\rangle</code></td>
+  <td>\(\rangle\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">/</code></td>
+  <td>\(/\)</td>
+  <td><code style="color: green">\backslash</code></td>
+  <td>\(\backslash\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">|</code></td>
+  <td>\(|\)</td>
+  <td><code style="color: green">\|</code></td>
+  <td>\(\|\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\Box</code></td>
+  <td>\(\Box\)</td>
+  <td><code style="color: green">\cdots</code></td>
+  <td>\(\cdots\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\vdots</code></td>
+  <td>\(\vdots\)</td>
+  <td><code style="color: green">\ddots</code></td>
+  <td>\(\ddots\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\forall</code></td>
+  <td>\(\forall\)</td>
+  <td><code style="color: green">\exists</code></td>
+  <td>\(\exists\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\angle</code></td>
+  <td>\(\angle\)</td>
+  <td><code style="color: green">\triangle</code></td>
+  <td>\(\triangle\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\nabla</code></td>
+  <td>\(\nabla\)</td>
+  <td><code style="color: green">\partial</code></td>
+  <td>\(\partial\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\infty</code></td>
+  <td>\(\infty\)</td>
+  <td><code style="color: green">\ell</code></td>
+  <td>\(\ell\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\aleph</code></td>
+  <td>\(\aleph\)</td>
+  <td><code style="color: green">\varnothing</code></td>
+  <td>\(\varnothing\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\wp</code></td>
+  <td>\(\wp\)</td>
+  <td><code style="color: green">\complement</code></td>
+  <td>\(\complement\)</td>
+</tr>
+</table>
+</p>
+
+<p style="text-indent: 2em">
+<a href="#table10">表 10</a> 中的命令 “<code style="color: green">|</code>” 和<a href="#table7">表 7</a> 中的命令 “<code style="color: green">\mid</code>” 不同，如代码 “<code style="color: green">\{x|x>0\}</code>” 和 “<code style="color: green">\{x\mid x>0\}</code>” 分别给出：\(\{x| x>0\}\) 和 \(\{x\mid x>0\}\)。表示集合时推荐用后者。前述集合还可以由代码 “<code style="color: green">\{x\colon x>0\}</code>” 给出：\(\{x\colon x>0\}\)。此处代码中分隔号不用直接用冒号 “<code style="color: green">:</code>” 是因为数学环境中冒号默认显示为比号，如代码 “<code style="color: green">a\colon b</code>” 和 “<code style="color: green">a:b</code>” 分别给出：\(a\colon b\) 和 \(a:b\)。
+</p>
+
+<p style="text-indent: 2em">
+命令 “<code style="color: green">| \|</code>” 有时也用于录入绝对值和范数，但更好的选择是命令 “<code style="color: green">\lvert \rvert \lVert \rVert</code>”，见<a href="#section15.3">第 15 节（3）</a>。
+</p>
+
+<a name="section6"></a>
+<h3 style="text-align: center; color: blue">
+6. 常用的数学结构 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<a name="table11"></a><!-常用的 \(\mathrm\LaTeX\) 数学结构->
+<p>
+<table border="1" cellspacing="0" cellpadding="10" style="font-size:0.85em; margin-right: auto; margin-left: auto; border-collapse: collapse;">
+<caption>表 11. 常用的数学结构</caption>
+<tr>
+  <th>代码</th>
+  <th>效果</th>
+  <th>代码</th>
+  <th>效果</th>
+</tr>
+<tr>
+  <td><code style="color: green">\widetilde{abc}</code></td>
+  <td>\(\widetilde{abc}\)</td>
+  <td><code style="color: green">\widehat{abc}</code></td>
+  <td>\(\widehat{abc}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\overleftarrow{abc}</code></td>
+  <td>\(\overleftarrow{abc}\)</td>
+  <td><code style="color: green">\overline{abc}</code></td>
+  <td>\(\overline{abc}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\overrightarrow{abc}</code></td>
+  <td>\(\overrightarrow{abc}\)</td>
+  <td><code style="color: green">\underline{abc}</code></td>
+  <td>\(\underline{abc}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\overbrace{abc}</code></td>
+  <td>\(\overbrace{abc}\)</td>
+  <td><code style="color: green">\underbrace{abc}</code></td>
+  <td>\(\underbrace{abc}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\sqrt{abc}</code></td>
+  <td>\(\sqrt{abc}\)</td>
+  <td><code style="color: green">\sqrt[n]{abc}</code></td>
+  <td>\(\sqrt[n]{abc}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">f'</code></td>
+  <td>\(f'\)</td>
+  <td><code style="color: green">f''</code></td>
+  <td>\(f''\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\frac{abc}{xyz}</code></td>
+  <td>\(\frac{abc}{xyz}\)</td>
+  <td><code style="color: green">\dfrac{abc}{xyz}</code></td>
+  <td>\(\dfrac{abc}{xyz}\)</td>
+</tr>
+</table>
+</p>
+
+<p style="text-indent: 2em">
+<a href="#table11">表 11</a> 中的命令 “<code style="color: green">\overbrace \underbrace</code>” 可以分别与命令 “<code style="color: green">^ _</code>” 组合，用来在括号上方和下方增加文字，如代码 <pre style="color: green">
+  \[\overbrace{a + b + c}^{d} = 
+    \underbrace{e + f + g}_{h}\]
+</pre>给出： \[\overbrace{a + b + c}^{d} = 
+    \underbrace{e + f + g}_{h}\]
+命令 “<code style="color: green">\overbrace \underbrace</code>” 还可以嵌套使用。
+</p>
+
+<p style="text-indent: 2em">
+表中最后的两个命令 “<code style="color: green">\frac{abc}{xyz}</code>” “<code style="color: green">\dfrac{abc}{xyz}</code>” 在居中公式环境里的显示效果没有差别，在行内公式环境中，前者会自动缩小字号（如该表所示）。
+</p>
+
+<a name="section7"></a>
+<h3 style="text-align: center; color: blue">
+7. 常用的字体 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<p style="text-indent: 2em">
+常用的字体命令如下（见<a href="#table12">表 12</a>）：
+</p>
+
+<p style="text-indent: 2em">
+  1. 命令 “<code style="color: green">\mathrm</code>” 将英文字母（默认为斜体）转为正体；
+</p>
+<p style="text-indent: 2em; margin-top: -18px">
+  2. 命令 “<code style="color: green">\mathbf</code>” 可以将英文字母（默认为斜体）转为正黑体；
+</p>
+<p style="text-indent: 2em; margin-top: -18px">
+  3. 命令 “<code style="color: green">\boldsymbol</code>” 可以将常见字符转为黑体；
+</p>
+<p style="text-indent: 2em; margin-top: -18px">
+  4. 命令 “<code style="color: green">\mit</code>” 可以将大写希腊字母转为斜体（默认为正体）；
+</p>
+<p style="text-indent: 2em; margin-top: -18px">
+  5. 命令 “<code style="color: green">\mathbb</code>” 可以将大写英文字母转为空心正体。
+</p>
+
+<a name="table12"></a><!-常见字体命令->
+<p>
+<table border="1" cellspacing="0" cellpadding="10" style="font-size:0.85em; margin-right: auto; margin-left: auto; border-collapse: collapse;">
+<caption>表 12. 常见字体命令</caption>
+<tr>
+  <th>代码</th>
+  <th>效果</th>
+</tr>
+<tr>
+  <td><code style="color: green">\mathrm{abcXYZ}</code></td>
+  <td>\(\mathrm{abcXYZ}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\mathbf{abcXYZ}</code></td>
+  <td>\(\mathbf{abcXYZ}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\boldsymbol{a\xi A\Xi}</code></td>
+  <td>\(\boldsymbol{a\xi A\Xi}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">{\mit\Sigma\Phi\Xi}</code></td>
+  <td>\({\mit\Sigma\Phi\Xi}\)</td>
+</tr>
+<tr>
+  <td><code style="color: green">\mathbb{ABCDEFG}</code></td>
+  <td>\(\mathbb{ABCDEFG}\)</td>
+</tr>
+</table>
+</p>
+
+<a name="section8"></a>
+<h3 style="text-align: center; color: blue">
+8. 调整括号的大小 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<p style="text-indent: 2em">
+有时需要结合公式特点调整括号的大小。一种方法是用命令 “<code style="color: green">\left(...\right)</code>” 自动匹配括号内式子的大小，如代码 <pre style="color: green">
+  \[2\left(\sum_{i=1}^n a_i\right)+1\]</pre>给出： \[2\left(\sum_{i=1}^n a_i\right)+1\]
+若居中公式因太长而需要换行，且换行处恰好在一组括号中间，则不能直接用该方法，而需要增加隐形的括号 “<code style="color: green">\left. \right.</code>”，即 “<code style="color: green">\left \right</code>” 在一行内必须成对出现。如代码 <pre style="color: green">
+  \[\begin{aligned}
+    a={}& 2\left\{b+c+d+e+{}\right.\\
+        & \left. f+g+h\right\}+1
+    \end{aligned}\]
+</pre> 给出： \[\begin{aligned}
+    a={}& 2\left\{b+c+d+e+{}\right.\\
+        & \left. f+g+h\right\}+1
+    \end{aligned}\]
+代码中的 “<code style="color: green">\begin{aligned}...\end{aligned}</code>” 为对齐环境， 第 2 行中等号和最后的加号后面各有一组空括号，目的是为了保证二元运算符前后的间距协调。
+</p>
+
+<p style="text-indent: 2em">
+另一种方法是分别用命令 “<code style="color: green">\bigl \bigr \Bigl \Bigr \biggl \biggr \Biggl \Biggr</code>” （从小到大排列）指定括号的大小，如代码 <pre style="color: green">
+  \[\Biggl(\biggl(\Bigl(\bigl(\cdots \bigr)\Bigr)\biggr)\Biggr)\]</pre>给出： \[\Biggl(\biggl(\Bigl(\bigl(\cdots \bigr)\Bigr)\biggr)\Biggr)\]
+命令中的 “<code style="color: green">l r</code>” 分别表示左括号和右括号。此时也可以省略 “<code style="color: green">l r</code>” 中的一个，但括号与其旁边的字符间距可能会不协调。
+</p>
+
+<p style="text-indent: 2em">
+以上两种方法，命令中的括号均可以换为方括号 “<code style="color: green">[ ]</code>”、花括号 “<code style="color: green">\{ \}</code>” （注意反斜线）或尖括号 “<code style="color: green">\langle \rangle</code>”，也可以左、右括号类型不同。使用时需要根据实际公式选用其中一种，如代码 <pre style="color: green">
+  \[2\left(\sum_{i>2} a_i\right)+1\]</pre>给出：\[2\left(\sum_{i>2} a_i\right)+1\]
+而代码 <pre style="color: green">
+  \[2\biggl(\sum_{i>2}^n a_i\biggr)+1\]</pre>给出： \[2\biggl(\sum_{i>2} a_i\biggr)+1\]
+后者看起来好一点；但是分段函数或方程组中的花括号只能用前一种，见<a href="#section11">第 11 节</a>。
+</p>
+
+<a name="section9"></a>
+<h3 style="text-align: center; color: blue">
+9. 分式和相关结构 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<p style="text-indent: 2em">
+分式结构命令 “<code style="color: green">\frac{分子}{分母}</code>” 在行内公式中会自动减小字号，可改用命令 “<code style="color: green">\dfrac{分子}{分母}</code>”，见<a href="#table11">表 11<a>。
+</p>
+
+<p style="text-indent: 2em">
+表示从 \(n\) 个元素中取 \(i\) 个元素的组合数有两种方式，代码 “<code style="color: green">\mathrm{C}_n^i</code>”给出：\(\mathrm{C}_n^i\)，而代码 “<code style="color: green">\binom{n}{i}</code>” 给出：\(\binom{n}{i}\)。在行内公式中，后者会自动减小字号，可改用命令 “<code style="color: green">\dbinom</code>”，即代码 “<code style="color: green">\dbinom{n}{i}</code>” 给出： \(\dbinom{n}{i}\)。
+</p>
+
+<p style="text-indent: 2em">
+命令 “<code style="color: green">\atop</code>” 可以用来构造类似的结构，如代码 “<code style="color: green">\left({n \atop i}\right)</code>” 给出：\(\left({n \atop i}\right)\)，而代码 “<code style="color: green">\left[{n \atop i}\right]</code>” 给出：\(\left[{n \atop i}\right]\)。要得到居中公式样式，只需加命令  “<code style="color: green">\displaystyle</code>”，如代码 <pre style="color: green">
+  \displaystyle\left\{ {{n \atop i}\right\}</pre>给出：\(\displaystyle\left\{ {n \atop i}\right\}\)。这种结构还可以用 array 环境来构造，见<a href="#section10">第 10 节</a>和<a href="#section12">第 12 节</a>。
+</p>
+
+<a name="section10"></a>
+<h3 style="text-align: center; color: blue">
+10. 简单的表格&emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<p style="text-indent: 2em">
+简单的表格可以由 array 环境 “<code style="color: green">\begin{array}{参数}...\end{array}</code>” 生成，如代码 <pre style="color: green">
+  \[\begin{array}{ccc}
+      1 & 456 & \alpha\\
+      12 & 56 & \beta\\
+      123 & 7 & \gamma
+    \end{array}\]</pre>给出：\[\begin{array}{ccc}
+      1 & 456 & \alpha\\
+      12 & 56 & \beta\\
+      123 & 7 & \gamma
+    \end{array}\]
+而代码 <pre style="color: green">
+  \[\begin{array}{l|r||c}
+      1 & 456 & \alpha\\
+      \hline
+      12 & 56 & \beta\\
+      123 & 7 & \gamma
+    \end{array}\]</pre>则给出： \[\begin{array}{l|r|c}
+      1 & 456 & \alpha\\
+      \hline
+      12 & 56 & \beta\\
+      123 & 7 & \gamma
+    \end{array}\]
+即 array 环境代码第一行最后的参数指定各列对齐方式（必填，且“<code style="color: green">l r c</code>” 分别表示左对齐、右对齐、居中对齐）和是否加分割线（选填），各行的分割线由命令 “<code style="color: green">\hline</code>” 给出。通过增加分割线可以生成有线表，如代码 <pre style="color: green">
+  \[\begin{array}{|c|c|c|c|c|}
+      \hline
+      i & 1 & 2 & \cdots & n\\
+      \hline
+      x_i & 1 & 2 & \cdots & n\\
+      \hline
+      y_i & 1 & 4 & \cdots & n^2\\
+      \hline
+    \end{array}\]</pre>给出： \[\begin{array}{|c|c|c|c|c|}
+      \hline
+      i & 1 & 2 & \cdots & n\\
+      \hline
+      x_i & 1 & 2 & \cdots & n\\
+      \hline
+      y_i & 1 & 4 & \cdots & n^2\\
+      \hline
+    \end{array}\]
+</p>
+
+<a name="section11"></a>
+<h3 style="text-align: center; color: blue">
+11. 分段函数和方程组 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<p style="text-indent: 2em">
+利用 array 环境也可以录入分段函数，如代码 <pre style="color: green">
+  \[f(x)=\left\{\!\!
+    \begin{array}{ll}
+      1, & x\in\mathbb{Q},\\
+      0, & x\not\in\mathbb{Q}.
+    \end{array}\right.\]
+</pre>给出： \[f(x)=\left\{\!\!
+    \begin{array}{ll}
+      1, & x\in\mathbb{Q},\\
+      0, & x\not\in\mathbb{Q}.
+    \end{array}\right.\]
+更简洁的是用 cases 环境录入分段函数，如代码 <pre style="color: green">
+  \[f(x)=\begin{cases}
+      1, & x\in\mathbb{Q},\\
+      0, & x\not\in\mathbb{Q}.
+    \end{cases}\]
+</pre>给出： \[f(x)=\begin{cases}
+      1, & x\in\mathbb{Q},\\
+      0, & x\not\in\mathbb{Q}.
+    \end{cases}\]
+</p>
+
+<p style="text-indent: 2em">
+利用 array 环境还可以录入方程组，如代码 <pre style="color: green">
+  \[\left\{\!\!
+    \begin{array}{l}
+      x+y+z=1,\\
+      x+2y=2,\\
+      x=3.
+    \end{array}\right.\]
+</pre>给出： \[\left\{\!\!
+    \begin{array}{l}
+      x+y+z=1,\\
+      x+2y=2,\\
+      x=3.
+    \end{array}\right.\]
+若要等号对齐，则需改用 aligned 对齐环境 “<code style="color: green">\begin{aligned}...\end{aligned}</code>”，如代码 <pre style="color: green">
+  \[\left\{\!\!
+    \begin{aligned}
+      x+y+z &{}=1,\\
+      x+2y  &{}=2,\\
+      x     &{}=3.
+    \end{aligned}\right.\]
+</pre>给出： \[\left\{\!\!
+    \begin{aligned}
+      x+y+z &{}=1,\\
+      x+2y  &{}=2,\\
+      x     &{}=3.
+    \end{aligned}\right.\]
+</p>
+
+
+<a name="section12"></a>
+<h3 style="text-align: center; color: blue">
+12. 矩阵类环境 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<p style="text-indent: 2em">
+在 array 环境两边加括号可以录入矩阵。如代码 <pre style="color: green">
+\[\left(\begin{array}{cccc}
+    a_{11}& a_{12}& \cdots& a_{1n}\\
+    a_{21}& a_{22}& \cdots& a_{2n}\\
+    \vdots& \vdots&       & \vdots\\
+    a_{n1}& a_{n2}& \cdots& a_{nn}
+  \end{array}\right)\]
+</pre>给出： \[\left(\begin{array}{cccc}
+      a_{11} & a_{12} & \cdots& a_{1n}\\
+      a_{21} & a_{22} & \cdots& a_{2n}\\
+      \vdots & \vdots &       & \vdots\\
+      a_{n1} & a_{n2} & \cdots& a_{nn}
+    \end{array}\right)\]
+要录入增广矩阵只需适当加竖线即可，而斜向省略号命令为 “<code style="color: green">\ddots</code>”。还可以用 matrix, pmatrix, bmatrix, Bmatrix, vmatrix 和 Vmatrix 环境录入矩阵，这些环境默认各列居中。如代码 <pre style="color: green">
+  \[\begin{matrix} 0 & 1 \\
+      1 & 0\end{matrix} \quad
+    \begin{pmatrix} 0 & 1 \\
+      1 & 0\end{pmatrix} \quad
+    \begin{bmatrix} 0 & 1 \\
+      1 & 0\end{bmatrix} \]
+  \[\begin{Bmatrix} 0 & 1 \\
+      1 & 0\end{Bmatrix} \quad
+    \begin{vmatrix} 0 & 1 \\
+      1 & 0\end{vmatrix} \quad
+    \begin{Vmatrix} 0 & 1 \\
+      1 & 0\end{Vmatrix}\]
+</pre>给出： \[\begin{matrix} 0 & 1 \\
+      1 & 0\end{matrix} \quad
+    \begin{pmatrix} 0 & 1 \\
+      1 & 0\end{pmatrix} \quad
+    \begin{bmatrix} 0 & 1 \\
+      1 & 0\end{bmatrix} \]
+    \[\begin{Bmatrix} 0 & 1 \\
+      1 & 0\end{Bmatrix} \quad
+    \begin{vmatrix} 0 & 1 \\
+      1 & 0\end{vmatrix} \quad
+    \begin{Vmatrix} 0 & 1 \\
+      1 & 0\end{Vmatrix}\]
+代码中的命令 “<code style="color: green">\quad</code>” 表示一字空。
+</p>
+
+
+<a name="section13"></a>
+<h3 style="text-align: center; color: blue">
+13. 公式类环境 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<p style="text-indent: 2em">
+多个居中公式罗列用 gathered 环境 “<code style="color: green">\begin{gathered}...\end{gathered}</code>”，如代码 <pre style="color: green">
+  \[\begin{gathered}
+      x^2 + 2x - 1 = x + 1,\\
+      x^2 + x - 2 = 0
+    \end{gathered}\]
+</pre>给出： \[\begin{gathered}
+      x^2 + 2x - 1 = x + 1,\\
+      x^2 + x - 2 = 0
+    \end{gathered}\]
+若要等号对齐，则改用<a href="#section11">第 11 节</a>最后介绍的 aligned 环境。
+</p>
+
+<p style="text-indent: 2em">
+由于要兼顾各资源平台的手机端 app 界面，若录入的公式太长，则需适当换行，此时也可用 aligned 环境，如代码 <pre style="color: green">
+  \[\begin{aligned}
+      a={}& b+c+d+e+{}\\
+          & f+g+h+i
+    \end{aligned}\]
+</pre>给出： \[\begin{aligned}
+      a={}& b+c+d+e+{}\\
+          & f+g+h+i
+    \end{aligned}\]
+而代码 <pre style="color: green">
+  \[\begin{aligned}
+         & a+b+c+d+e+f\\
+      ={}& g+h+i+j+k
+    \end{aligned}\]
+</pre>则给出： \[\begin{aligned}
+         & a+b+c+d+e+f\\
+      ={}& g+h+i+j+k
+    \end{aligned}\]
+若换行的公式中用了命令 “<code style="color: green">\left...\right</code>” 来调整括号的大小，则需注意命令在一行内应成对出现，详见<a href="#section7">第 7 节</a>。
+</p>
+
+<p style="text-indent: 2em">
+
+</p>
+
+<a name="section14"></a>
+<h3 style="text-align: center; color: blue">
+14. 定义新命令 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<p style="text-indent: 2em">
+有的符号并没有现成的 \(\mathrm{\LaTeX}\) 命令可用，除了换一种表达方式，也可以尝试用已有的命令拼接出来。一般用命令 “<code style="color: green">\def</code>” 定义新的命令，代码格式为 “<code style="color: green">\def新命令{新命令含义}</code>”。下面举两个例子。
+</p>
+
+<p style="text-indent: 2em">
+二重环面积分号可以用代码 <pre style="color: green">
+  \def\oiint{\mkern 2.5mu
+    \bigcirc\mkern -25.5mu\iint}</pre>定义为命令 
+“<code style="color: green">\oiint</code>”。使用时把该段代码放在数学环境的最前面，如代码 <pre style="color: green">
+  \[\def\oiint{\mkern 2.5mu\bigcirc\mkern -25.5mu\iint}
+    I= \oiint\limits_{\mit\Sigma} xyz\,\mathrm{d}S\]
+</pre>给出： \[\def\oiint{\mkern 2.5mu
+       \bigcirc\mkern -25.5mu\iint}
+    I= \oiint\limits_{\mit\Sigma} 
+       xyz\,\mathrm{d}S\]
+</p>
+
+<p style="text-indent: 2em">
+“定义为” 符号可用代码 <pre style="color: green"> 
+  \def\defby{\buildrel{\mathrm{def}} 
+    \over{=\kern-0.2em=}}</pre>定义为命令 
+“<code style="color: green">\defby</code>”，如代码 <pre style="color: green">
+  \[\def\defby{\buildrel{\mathrm{def}} \over{=\kern-0.2em=}}
+    T(E,f) \defby \{(x, f(x))\mid
+       x\in E\}.\]
+</pre>给出： \[\def\defby{\buildrel{\mathrm{def}} 
+       \over{=\kern-0.2em=}}
+    T(E,f) \defby \{(x, f(x))\mid
+       x\in E\}.\]
+</p>
+
+<a name="section15"></a>
+<h3 style="text-align: center; color: blue">
+15. 常见问题 &emsp;&emsp;<a href="#contents"><font size="0.8em">回目录</font></a>
+</h3>
+
+<p style="text-indent: 2em">
+（1）为什么预览时仍显示代码，不显示公式？
+</p>
+
+<p style="text-indent: 2em">
+答：仍显示代码是因为代码错误。通常的错误原因为命令名敲错或括号不匹配。 \(\mathrm{\LaTeX}\) 命令名中大小写不同，命令含义有区别。而分组用的花括号 “<code style="color: green">{}</code>” 必须匹配，还有公式同一行中 “<code style="color: green">\left \right</code>” 必须同时出现（见<a href="#section8">第 8 节</a>）。
+</p>
+
+<p style="text-indent: 2em">
+（2）如何录入梯度、旋度、散度和拉普拉斯算子？
+</p>
+
+<p style="text-indent: 2em">
+答：梯度可以用命令 “<code style="color: green">\nabla</code>” 或代码 “<code style="color: green">\mathbf{grad}</code>”录入，如代码 <pre style="color: green">
+  \nabla f= \mathbf{grad}\, f</pre>给出：\(\nabla f= \mathbf{grad}\, f\)。旋度和散度也可以利用命令 “<code style="color: green">\mathbf</code>” 来录入。拉普拉斯算子由大写希腊字母命令 “<code style="color: green">\Delta</code>” 即 \(\Delta\) 给出。
+</p>
+
+<a name="section15.3"></a>
+<p style="text-indent: 2em">
+（3）如何录入绝对值和范数？
+</p>
+
+<p style="text-indent: 2em">
+答：绝对值用代码 “<code style="color: green">|...|</code>” 或 “<code style="color: green">\lvert...\rvert</code>” 录入（推荐后者），如代码 “<code style="color: green">|-x+1|</code>” 和 “<code style="color: green">\lvert -x+1\rvert</code>” 分别给出：\(|-x+1|\) 和 \(\lvert -x+1\rvert\)。范数用代码 “<code style="color: green">\|...\|</code>” 或 “<code style="color: green">\lVert...\rVert</code>” 录入（仍推荐后者），如代码 “<code style="color: green">\| -f+g\|_2</code>” 和 “<code style="color: green">\lVert -f+g\rVert_2</code>” 分别给出：\(\| -f+g\|_2\) 和 \(\lVert -f+g\rVert_2\)。
+</p>
+
+<p style="text-indent: 2em">
+（4）如何录入上极限和下极限？
+</p>
+
+<p style="text-indent: 2em">
+答：可用命令 “<code style="color: green">\limsup \liminf</code>” 或 “<code style="color: green">\varlimsup \varliminf</code>” 录入，如代码 <pre style="color: green">
+  \[\limsup_{n\to\infty} a_n 
+    = \liminf_{n\to\infty} a_n
+    = 1\]
+</pre>给出： \[\limsup_{n\to\infty} a_n 
+    = \liminf_{n\to\infty} a_n
+    = 1\] 而代码 <pre style="color: green">
+  \[\varlimsup_{n\to\infty} a_n 
+    = \varliminf_{n\to\infty} a_n
+    = 1\]
+</pre>则给出： \[\varlimsup_{n\to\infty} a_n 
+    = \varliminf_{n\to\infty} a_n
+    = 1\]
+</p>
+
+<a name="section15.5"></a>
+<p style="text-indent: 2em">
+（5）二重极限如何录入？如何调整极限下角的位置？如何调整求和号、积分号的样式和上下限的位置？
+</p>
+
+<p style="text-indent: 2em">
+答：二重极限可用命令 “<code style="color: green">\substack</code>”，如代码 <pre style="color: green">
+  \[\lim_{\substack{x\to 0\\ y\to 0}}
+    (x^2 + y^2) = 0\]
+</pre>给出：\[\lim_{\substack{x\to 0\\ y\to 0}}
+    (x^2 + y^2) = 0\]
+同样的方法可以在其他符号（如求和号等）的下角中录入多个堆叠的公式。调整公式样式和上下限可用命令 “<code style="color: green">\displaystyle</code>” “<code style="color: green">\limits</code>” 和 “<code style="color: green">\nolimits</code>” 分别调整，具体方法见<a href="#table6">表 6</a> 后的说明。
+</p>
+
+<p style="text-indent: 2em">
+（6）如何录入正体的积分号、偏微分号和小写希腊字母 \(\pi\)？
+</p>
+
+<p style="text-indent: 2em">
+答：上面三个符号在 \(\mathrm{\LaTeX}\) 中默认为斜体，MathJax 暂时没有提供修改为正体的方法。
+</p>
+
+<p style="text-indent: 2em">
+（7）如何录入弧符号？
+</p>
+
+<p style="text-indent: 2em">
+答：可改用汉字描述，如 “弧 \(AB\)”；或用命令 “<code style="color: green">\overparen</code>” 录入，如代码 <pre style="color: green">
+  \overparen{AB}=\overparen{AmB}</pre>给出：\(\overparen{AB}=\overparen{AmB}\)。
+</p>
+
+
+
+</body>
+</html>
