@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-cn">
+
+{% include head.html %}
+
+<body class="sideNavVisible separateOnPageNav">
+  <div class="fixedHeaderContainer">
+  <div class="headerWrapper wrapper">
+    {% include header.html %}
+  </div></div>
+  
+  <div class="navPusher">
+  <div class="docMainWrapper wrapper">
+    {{ content }}
+     
+    <!--右侧边栏本页导航-->
+    {% include pagenav.html %}
+     
+  </div>
+
+  {% include footer.html %}
+        
+  </div>
+  
+  <div id="back-to-top" class="hidden"><svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg></div>
+    
+</body>
+
+</html>

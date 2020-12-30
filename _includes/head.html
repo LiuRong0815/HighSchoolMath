@@ -1,0 +1,25 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width">
+  
+  <title>{{ page.title }}</title>  
+  
+  <!--link rel="stylesheet" href="../../css/docsearch.css"-->
+  <link rel="stylesheet" href={{ "/assets/css/default.css" | relative_url }}><!--文本高亮-->
+  <link rel="stylesheet" href={{ "/assets/css/main.css" | relative_url }}><!--主要样式-->
+  <link rel="stylesheet" href={{ "/assets/css/katex.min.css" | relative_url }}><!--公式样式-->
+  <link rel="stylesheet" href={{ "/assets/css/hsm.css" | relative_url }} type="text/css" media="all" /><!--返回按钮样式-->
+    
+  <script src={{ "/assets/js/buttons.js" | relative_url }}></script>
+  <script src={{ "/assets/js/vanilla-back-to-top.js" | relative_url }}></script>
+  <script src={{ "/assets/js/scrollSpy.js" | relative_url }}></script>
+  <script src={{ "/assets/js/codetabs.js" | relative_url }}></script>
+
+  <!-- The loading of KaTeX is deferred to speed up page rendering -->
+  <script defer src="/assets/js/katex.min.js"></script>
+
+  <!-- To automatically render math in text elements, include the auto-render extension: -->
+  <script defer src="/assets/js/auto-render.min.js"></script>
+  <script src="/assets/js/hsm.js"></script>
+</head>

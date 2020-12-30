@@ -1,0 +1,37 @@
+collections_dir: my_collections
+
+collections:
+#  authors:
+#    output: true
+  ZHR-records:
+    output: true
+  hs-basics:
+    output: true
+  first-kinds:
+    output: true
+    
+defaults:
+  - scope:
+      path: ""
+      type: "ZHR-records"
+    values:
+      layout: "ZHR-record"
+  - scope:
+      path: ""
+      type: "hs-basics"
+    values:
+      layout: "hs-basic"
+  - scope:
+      path: ""
+      type: "first-kinds"
+    values:
+      layout: "first-kind"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"

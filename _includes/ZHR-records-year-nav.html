@@ -1,0 +1,18 @@
+{% for item in site.data.ZHR-records-nav %}
+  {% if item.year == page.year %}
+    {% for subitem in item.months %}
+      <div class="navGroup">
+      <h3 class="navGroupCategoryTitle">{{ item.year }} 年 {{ subitem.month }} 月</h3>
+      <ul class="">
+      {% for subsubitem in subitem.days %}
+        <li class="navListItem">
+          <a class="navItem" href="{{ subsubitem.link }}" 
+            {% if page.url == subsubitem.link %}
+          class="current"{% endif %}>{{ subsubitem.name }}</a>
+        </li>
+      {% endfor %}
+      </ul>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endfor %}

@@ -1,0 +1,7 @@
+{% for item in site.data.ZHR-records-nav %}
+  {% for subitem in item.months %}
+      <div class="navGroup">
+      <h4 class="navGroupCategoryTitle"><a href="ZHR-records/{{ item.year }}/{{ subitem.days[0].link}}">{{ item.year }} 年 {{ subitem.month }} 月</a></h4>
+      </div>
+  {% endfor %}
+{% endfor %}

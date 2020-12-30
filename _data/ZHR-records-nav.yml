@@ -1,0 +1,38 @@
+- year: 2020
+  months:
+  - month: 9
+    days:
+      - name: 9 月 21 日
+        link: 2020-0921.html
+      - name: 9 月 22 日
+        link: 2020-0922.html
+  - month: 10
+    days:
+      - name: 9 月 26 日
+        link: 2020-0926.html
+      - name: 9 月 27 日
+        link: 2020-0927.html
+      - name: 9 月 28 日
+        link: 2020-0928.html
+      - name: 9 月 29 日
+        link: 2020-0929.html
+
+# test, to be finished
+- year: 2021
+  months:
+  - month: 1
+    days:
+      - name: 1 月 1 日
+        link: 2021-0921.html
+      - name: 1 月 2 日
+        link: 2021-0922.html
+  - month: 2
+    days:
+      - name: 2 月 2 日
+        link: 2021-0926.html
+      - name: 9 月 27 日
+        link: 2021-0927.html
+      - name: 9 月 28 日
+        link: 2021-0928.html
+      - name: 9 月 29 日
+        link: 2021-0929.html
