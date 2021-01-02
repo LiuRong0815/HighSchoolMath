@@ -6,8 +6,6 @@
         link: 2020-0921.html
       - name: 9 月 22 日
         link: 2020-0922.html
-  - month: 10
-    days:
       - name: 9 月 26 日
         link: 2020-0926.html
       - name: 9 月 27 日
@@ -16,23 +14,65 @@
         link: 2020-0928.html
       - name: 9 月 29 日
         link: 2020-0929.html
-
-# test, to be finished
-- year: 2021
-  months:
-  - month: 1
+  - month: 10
     days:
-      - name: 1 月 1 日
-        link: 2021-0921.html
-      - name: 1 月 2 日
-        link: 2021-0922.html
-  - month: 2
+      - name: 10 月 2 日
+        link: 2020-1002.html
+      - name: 10 月 4 日
+        link: 2020-1004.html
+      - name: 10 月 6 日
+        link: 2020-1006.html
+      - name: 10 月 11 日
+        link: 2020-1011.html
+      - name: 10 月 14 日
+        link: 2020-1014.html
+      - name: 10 月 19 日
+        link: 2020-1019.html
+      - name: 10 月 21 日
+        link: 2020-1021.html
+      - name: 10 月 24 日
+        link: 2020-1024.html
+      - name: 10 月 26 日
+        link: 2020-1026.html
+      - name: 10 月 31 日
+        link: 2020-1031.html
+  - month: 11
     days:
-      - name: 2 月 2 日
-        link: 2021-0926.html
-      - name: 9 月 27 日
-        link: 2021-0927.html
-      - name: 9 月 28 日
-        link: 2021-0928.html
-      - name: 9 月 29 日
-        link: 2021-0929.html
+      - name: 11 月 3 日
+        link: 2020-1103.html
+      - name: 11 月 8 日
+        link: 2020-1108.html
+      - name: 11 月 14 日
+        link: 2020-1114.html
+      - name: 11 月 15 日
+        link: 2020-1115.html
+      - name: 11 月 21 日
+        link: 2020-1121.html
+      - name: 11 月 22 日
+        link: 2020-1122.html
+      - name: 11 月 23 日
+        link: 2020-1123.html
+      - name: 11 月 24 日
+        link: 2020-1124.html
+      - name: 11 月 26 日
+        link: 2020-1126.html
+      - name: 11 月 29 日
+        link: 2020-1129.html
+  - month: 12
+    days:
+      - name: 12 月 5 日
+        link: 2020-1205.html
+      - name: 12 月 6 日
+        link: 2020-1206.html
+      - name: 12 月 11 日
+        link: 2020-1211.html
+      - name: 12 月 12 日
+        link: 2020-1212.html
+      - name: 12 月 13 日
+        link: 2020-1213.html
+      - name: 12 月 16 日
+        link: 2020-1216.html
+      - name: 12 月 18 日
+        link: 2020-1218.html
+      - name: 12 月 22 日
+        link: 2020-1222.html
