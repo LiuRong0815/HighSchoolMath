@@ -3,6 +3,14 @@
     <h3>高中数学资源</h3></a>
     
     <div class="navigationWrapper navigationSlider">
-      {% include navigation.html %}
+      <nav class="slidingNav">
+      <ul class="nav-site nav-site-internal">
+      {% for item in site.data.navigation %}
+        <li class="siteNavGroupActive">
+        <a href="{{ item.link }}" {% if page.url == item.link %}  class="current"{% endif %}>{{ item.name }}</a>
+        </li>
+      {% endfor %}
+      </ul>
+      </nav>
     </div>
   </header>

@@ -5,10 +5,12 @@
       <h3 class="navGroupCategoryTitle">{{ item.year }} 年 {{ subitem.month }} 月</h3>
       <ul class="">
       {% for subsubitem in subitem.days %}
+        {% if page.this-url == subsubitem.link %} 
+        <li class="navListItem  navListItemActive" class="navListItem">
+        {% else %} 
         <li class="navListItem">
-          <a class="navItem" href="{{ subsubitem.link }}" 
-            {% if page.url == subsubitem.link %}
-          class="current"{% endif %}>{{ subsubitem.name }}</a>
+        {% endif %}
+          <a class="navItem" href="{{ subsubitem.link }}" >{{ subsubitem.name }}</a>
         </li>
       {% endfor %}
       </ul>
