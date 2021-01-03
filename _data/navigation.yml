@@ -1,6 +1,9 @@
 - name: ZHR 的答疑记录
+  category: ZHR-record
   link: /ZHR-records.html
 - name: 基础练习
+  category: hs-basic
   link: /hs-basics.html
 - name: 基础知识
+  category: first-kind
   link: /first-kinds.html

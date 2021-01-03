@@ -6,8 +6,8 @@
       <nav class="slidingNav">
       <ul class="nav-site nav-site-internal">
       {% for item in site.data.navigation %}
-        <li class="siteNavGroupActive">
-        <a href="{{ item.link }}" {% if page.url == item.link %}  class="current"{% endif %}>{{ item.name }}</a>
+        <li {% if page.category == item.category %}  class="siteNavGroupActive"{% endif %}>
+        <a href="{{ item.link }}">{{ item.name }}</a>
         </li>
       {% endfor %}
       </ul>
