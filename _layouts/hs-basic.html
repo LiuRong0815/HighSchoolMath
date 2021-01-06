@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+  <div class="docsNavContainer" id="docsNav">
+    <nav class="toc">
+    <div class="toggleNav">
+    <section class="navWrapper wrapper">
+    
+    <div class="navBreadcrumb wrapper">
+    <div class="navToggle" id="navToggler">
+    <div class="hamburger-menu">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div></div>
+    <h2>› <span>{{ page.chapter}}</span></h2>
+    <div class="tocToggler" id="tocToggler">
+      <i class="icon-toc"></i>
+    </div>
+    </div>
+    
+    <div class="navGroups">
+      {% if page.mark %}
+        {% include ZHR-records-main-nav.html %}
+      {% else %}
+        {% include ZHR-records-year-nav.html %}
+      {% endif %}
+    </div>
+    </section>
+    </div>
+    
+    </nav>
+  </div>
+    
+  <div class="container mainContainer docsContainer">
+    <div class="wrapper">
+    <div class="post">
+    
+    <header class="postHeader">
+      <h1 id="__docusaurus" class="postHeaderTitle">{{ page.title }}</h1>
+    </header>
+    
+    <article>
+      {{ content }}
+    </article>
+    
+    </div>
+    
+    <!--前后页跳转-->
+    {% include prevnext.html %}     
+    </div>
+  </div>

@@ -24,18 +24,18 @@
         link: 2020-1006.html
       - name: 10 月 11 日
         link: 2020-1011.html
-      #- name: 10 月 14 日
-        #link: 2020-1014.html
-      #- name: 10 月 19 日
-        #link: 2020-1019.html
-      #- name: 10 月 21 日
-        #link: 2020-1021.html
-      #- name: 10 月 24 日
-        #link: 2020-1024.html
-      #- name: 10 月 26 日
-        #link: 2020-1026.html
-      #- name: 10 月 31 日
-        #link: 2020-1031.html
+      - name: 10 月 14 日
+        link: 2020-1014.html
+      - name: 10 月 19 日
+        link: 2020-1019.html
+      - name: 10 月 21 日
+        link: 2020-1021.html
+      - name: 10 月 24 日
+        link: 2020-1024.html
+      - name: 10 月 26 日
+        link: 2020-1026.html
+      - name: 10 月 31 日
+        link: 2020-1031.html
   #- month: 11
     #days:
       #- name: 11 月 3 日
@@ -76,3 +76,9 @@
         #link: 2020-1218.html
       #- name: 12 月 22 日
         #link: 2020-1222.html
+      #- name: 12 月 26 日
+        #link: 2020-1226.html
+      #- name: 12 月 28 日
+        #link: 2020-1228.html
+      #- name: 12 月 29 日
+        #link: 2020-1229.html
